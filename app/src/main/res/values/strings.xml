@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="title">Calculadora</string>
+    <string name="label1">Introduzca un número:</string>
+    <string name="label2">Resultado:</string>
+
+    <!-- RADIO BUTTONS -->
+    <string name="sumar">SUMAR</string>
+    <string name="restar">RESTAR</string>
+    <string name="multiplicar">MULTIPLICAR</string>
+    <string name="dividir">DIVIDIR</string>
+    <string name="potencia">POTENCIA</string>
+    <string name="raiz">RAÍZ</string>
+
+    <!-- BOTONES -->
+    <string name="calcular">CALCULAR</string>
+    <string name="limpiar">LIMPIAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="mostrar">MOSTRAR</string>
+</resources>

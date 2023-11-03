@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="EstiloTitle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">50dp</item>
+    </style>
+
+    <style name="EstiloLabel">
+        <item name="android:textSize">15dp</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+</resources>
