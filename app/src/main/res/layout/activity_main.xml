@@ -56,7 +56,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -70,7 +70,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -167,14 +167,15 @@
         android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="35dp"
-        android:text="@string/guardar"
+        android:text="@string/calcular"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/grupo"
         app:layout_constraintTop_toBottomOf="@+id/txtResult"
-        tools:text="@string/calcular" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <Button
         android:id="@+id/btnLimpiar"
@@ -183,10 +184,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="35dp"
         android:text="@string/limpiar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/grupo"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalcular" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalcular"
+        app:layout_constraintVertical_bias="0.005" />
 
     <Button
         android:id="@+id/btnGuardar"
@@ -195,10 +198,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="35dp"
         android:text="@string/guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/grupo"
-        app:layout_constraintTop_toBottomOf="@+id/btnLimpiar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLimpiar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnMostrar"

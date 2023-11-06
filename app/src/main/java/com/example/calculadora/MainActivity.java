@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnGuardar, btnMostrar, btnLimpiar, btnCalcular;
 
     private Double store1, store2, storeResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // Ligamos los botones
-        btnGuardar = findViewById(R.id.btnCalcular);
+        btnGuardar = findViewById(R.id.btnGuardar);
         btnCalcular = findViewById(R.id.btnCalcular);
         btnLimpiar = findViewById(R.id.btnLimpiar);
         btnMostrar = findViewById(R.id.btnMostrar);
@@ -78,60 +79,107 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v.getId() == R.id.btnCalcular){
             if (rbSumar.isChecked()){
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                resultado = num1 + num2;
-                txtResult.setText(String.valueOf(resultado));
-            } else if(rbRestar.isChecked()){
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                resultado = num1 - num2;
-                txtResult.setText(String.valueOf(resultado));
-            } else if(rbMultiplicar.isChecked()){
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                resultado = num1 * num2;
-                txtResult.setText(String.valueOf(resultado));
-            } else if (rbDividir.isChecked()){
-
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                if (num2 != 0){
-                    resultado = num1 / num2;
-                    txtResult.setText(String.valueOf(resultado));
-                } else {
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()){
                     mostrarMensaje(
-                            "No se puede dividir por cero",
+                            "Por favor, rellene los campos",
                             "ERROR"
                     );
+                } else {
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    resultado = num1 + num2;
+                    txtResult.setText(String.valueOf(resultado));
+                }
+
+
+            } else if(rbRestar.isChecked()){
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()) {
+                    mostrarMensaje(
+                            "Por favor, rellene los campos",
+                            "ERROR"
+                    );
+                } else{
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    resultado = num1 - num2;
+                    txtResult.setText(String.valueOf(resultado));
+                }
+            } else if(rbMultiplicar.isChecked()){
+                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()) {
+                    mostrarMensaje(
+                            "Por favor, rellene los campos",
+                            "ERROR"
+                    );
+
+                } else{
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    resultado = num1 * num2;
+                    txtResult.setText(String.valueOf(resultado));
+                }
+            } else if (rbDividir.isChecked()){
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()) {
+                    mostrarMensaje(
+                            "Por favor, rellene los campos",
+                            "ERROR"
+                    );
+
+                } else{
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    if (num2 != 0) {
+                        resultado = num1 / num2;
+                        txtResult.setText(String.valueOf(resultado));
+                    } else {
+                        mostrarMensaje(
+                                "No se puede dividir por cero",
+                                "ERROR"
+                        );
+                    }
                 }
 
 
             } else if (rbPotencia.isChecked()){
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                if (num1 != 0 || num2 != 0){
-                    resultado = Math.pow(num1, num2);
-                    txtResult.setText(String.valueOf(resultado));
-                } else {
+                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()) {
                     mostrarMensaje(
-                            "Indeterminación",
+                            "Por favor, rellene los campos",
                             "ERROR"
                     );
+
+                } else {
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    if (num1 != 0 || num2 != 0){
+                        resultado = Math.pow(num1, num2);
+                        txtResult.setText(String.valueOf(resultado));
+                    } else {
+                        mostrarMensaje(
+                                "Indeterminación",
+                                "ERROR"
+                        );
+                    }
                 }
 
             } else if (rbRaiz.isChecked()) {
-                num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
-                num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
-                if (num2%2 == 0 && num1 < 0){
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty() ) {
                     mostrarMensaje(
-                            "En el conjunto de los números reales, no existe la raíz " +
-                                    "con exponente par de un número negativo",
-                            "WARNING"
+                            "Por favor, rellene los campos",
+                            "ERROR"
                     );
-                } else{
-                    resultado = Math.pow(num1, 1/num2);
-                    txtResult.setText(String.valueOf(resultado));
+
+                } else {
+                    num1 = Double.parseDouble(String.valueOf(txtNum1.getText()));
+                    num2 = Double.parseDouble(String.valueOf(txtNum2.getText()));
+                    if (num2%2 == 0 && num1 < 0){
+                        mostrarMensaje(
+                                "En el conjunto de los números reales, no existe la raíz " +
+                                        "con exponente par de un número negativo",
+                                "WARNING"
+                        );
+                    } else {
+                        resultado = Math.pow(num1, 1 / num2);
+                        txtResult.setText(String.valueOf(resultado));
+                    }
                 }
 
             } else{
@@ -147,9 +195,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             txtNum1.setText(null);
             txtNum2.setText(null);
             txtResult.setText(null);
+            rbRaiz.setChecked(false);
+            rbSumar.setChecked(false);
+            rbRestar.setChecked(false);
+            rbMultiplicar.setChecked(false);
+            rbDividir.setChecked(false);
+            rbPotencia.setChecked(false);
+
         }
 
-        if (v.getId() == R.id.btnCalcular){
+        if (v.getId() == R.id.btnGuardar){
             store1 = Double.parseDouble(txtNum1.getText().toString());
             store2 = Double.parseDouble(txtNum2.getText().toString());
             storeResult = Double.parseDouble(txtResult.getText().toString());
