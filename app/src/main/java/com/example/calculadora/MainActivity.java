@@ -79,7 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v.getId() == R.id.btnCalcular){
             if (rbSumar.isChecked()){
-                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()){
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")){
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -93,7 +96,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             } else if(rbRestar.isChecked()){
-                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()) {
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")) {
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -105,7 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     txtResult.setText(String.valueOf(resultado));
                 }
             } else if(rbMultiplicar.isChecked()){
-                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()) {
+                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")) {
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -118,7 +127,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     txtResult.setText(String.valueOf(resultado));
                 }
             } else if (rbDividir.isChecked()){
-                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()) {
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")) {
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -140,7 +152,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             } else if (rbPotencia.isChecked()){
-                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()) {
+                if (txtNum1.getText().toString().isEmpty() ||  txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")) {
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -161,7 +176,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             } else if (rbRaiz.isChecked()) {
-                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty() ) {
+                if (txtNum1.getText().toString().isEmpty() || txtNum2.getText().toString().isEmpty()
+                        || txtNum1.getText().toString().equals("-") || txtNum1.getText().toString().equals(".") ||
+                        txtNum2.getText().toString().equals("-") || txtNum2.getText().toString().equals(".") ||
+                        txtNum1.getText().toString().equals("+") || txtNum2.getText().toString().equals("+")) {
                     mostrarMensaje(
                             "Por favor, rellene los campos",
                             "ERROR"
@@ -176,8 +194,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         "con exponente par de un número negativo",
                                 "WARNING"
                         );
+                    } else if (num2%2 != 0 && num1 < 0){
+                        resultado = Math.pow((-num1), 1 / num2);
+                        resultado = resultado - 2*resultado;
+                        txtResult.setText(String.valueOf(resultado));
                     } else {
-                        resultado = Math.pow(num1, 1 / num2);
+                        resultado = Math.pow(num1, 1/num2);
                         txtResult.setText(String.valueOf(resultado));
                     }
                 }
