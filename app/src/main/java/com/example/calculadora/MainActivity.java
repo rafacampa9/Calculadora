@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
@@ -148,13 +147,12 @@ public class MainActivity extends AppCompatActivity  {
                             "ERROR"
                     );
                 } else{
+
                     resultado = Math.pow(num1, num2);
+
                     txtResult.setText(String.valueOf(resultado));
                 }
-
-            } else if (num2 < 0){
-                resultado = Math.pow(num1, 1/num2);
-            }else {
+            } else {
                 mostrarMensaje(
                         "Indeterminación",
                         "ERROR"
@@ -226,7 +224,6 @@ public class MainActivity extends AppCompatActivity  {
         rbDividir.setChecked(false);
         rbPotencia.setChecked(false);
     }
-
     public void guardar(View v){
         store1 = Double.parseDouble(txtNum1.getText().toString());
         store2 = Double.parseDouble(txtNum2.getText().toString());
