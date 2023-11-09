@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity  {
 
     private EditText txtNum1, txtNum2, txtResult;
     private RadioButton rbSumar, rbRestar, rbMultiplicar, rbDividir, rbPotencia, rbRaiz;
-    private Button btnGuardar, btnMostrar, btnLimpiar, btnCalcular;
-
     private Double store1, store2, storeResult, num1, num2, resultado;;
 
     @Override
@@ -36,14 +34,6 @@ public class MainActivity extends AppCompatActivity  {
         rbDividir = findViewById(R.id.rbDividir);
         rbPotencia = findViewById(R.id.rbPotencia);
         rbRaiz = findViewById(R.id.rbRaiz);
-
-
-        // Ligamos los botones
-        btnGuardar = findViewById(R.id.btnGuardar);
-        btnCalcular = findViewById(R.id.btnCalcular);
-        btnLimpiar = findViewById(R.id.btnLimpiar);
-        btnMostrar = findViewById(R.id.btnMostrar);
-
     }
 
     public void mostrarMensaje(String mensaje, String titulo) {
