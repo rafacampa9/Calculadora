@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity  {
 
     private EditText txtNum1, txtNum2, txtResult;
     private RadioButton rbSumar, rbRestar, rbMultiplicar, rbDividir, rbPotencia, rbRaiz;
-    private Double store1, store2, storeResult, num1, num2, resultado;;
+    private Double store1, store2, storeResult, num1, num2, resultado;
+    private RadioGroup grupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity  {
         rbDividir = findViewById(R.id.rbDividir);
         rbPotencia = findViewById(R.id.rbPotencia);
         rbRaiz = findViewById(R.id.rbRaiz);
+        grupo = findViewById(R.id.grupo);
     }
 
     public void mostrarMensaje(String mensaje, String titulo) {
@@ -217,12 +220,7 @@ public class MainActivity extends AppCompatActivity  {
         txtNum1.setText(null);
         txtNum2.setText(null);
         txtResult.setText(null);
-        rbRaiz.setChecked(false);
-        rbSumar.setChecked(false);
-        rbRestar.setChecked(false);
-        rbMultiplicar.setChecked(false);
-        rbDividir.setChecked(false);
-        rbPotencia.setChecked(false);
+        grupo.clearCheck();
     }
     public void guardar(View v){
         store1 = Double.parseDouble(txtNum1.getText().toString());
